@@ -1,5 +1,6 @@
 package com.example.baitapandroid.Fragment;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,60 +8,62 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.baitapandroid.MainActivity;
 import com.example.baitapandroid.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DangNhapFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class DangNhapFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class DangNhapFragment extends Fragment implements View.OnClickListener{
+    private EditText txt_sdt, txt_mk;
+    private Button btn_dangNhap;
+    private TextView txt_dangKy;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public DangNhapFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DangNhapFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DangNhapFragment newInstance(String param1, String param2) {
-        DangNhapFragment fragment = new DangNhapFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dang_nhap, container, false);
+        View v = inflater.inflate(R.layout.fragment_dang_nhap, container, false);
+        addView(v);
+        btn_dangNhap.setOnClickListener(this);
+        txt_dangKy.setOnClickListener(this);
+        return v;
+    }
+
+    private void addView(View v) {
+        txt_mk = v.findViewById(R.id.txt_mk);
+        txt_sdt = v.findViewById(R.id.txt_sdt);
+        btn_dangNhap= v.findViewById(R.id.btn_dn);
+        txt_dangKy = v.findViewById(R.id.txt_dk);
+    }
+
+    @Override
+    public void onClick(View v) {
+        MainActivity m = (MainActivity)getActivity();
+        if(v.getId()==R.id.btn_dn)
+        {
+
+            if(txt_mk.getText().toString().equals(m.txt_mk)&&txt_sdt.getText().toString().equals(m.txt_sdt))
+            {
+                AlertDialog.Builder bl = new AlertDialog.Builder(requireContext())
+                        .setMessage("Đăng nhập thành công !")
+                        .setCancelable(true)
+                        .setPositiveButton("Ok",((dialog, id) -> dialog.dismiss() ));
+                bl.show();
+            }else
+            {
+                AlertDialog.Builder bl = new AlertDialog.Builder(requireContext())
+                        .setMessage("Đăng nhập thất bại !")
+                        .setCancelable(true)
+                        .setPositiveButton("Ok",((dialog, id) -> dialog.dismiss() ));
+                bl.show();
+            }
+        }if(v.getId()==R.id.txt_dk)
+        {
+            m.addFragment(new DangKyFragment());
+        }
     }
 }
