@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#BBD7F3"
+    tools:context=".Fragment.DangNhapFragment">
+    <ImageView
+        android:id="@+id/dangnhap_logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/snapchat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="150sp"/>
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chào mừng bạn quay trở lại"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/dangnhap_logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20sp"/>
+    <EditText
+        android:id="@+id/txt_sdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:hint="Nhập vào số đện thoại"
+        android:textColorHint="#474747"
+        android:paddingLeft="15sp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/txt1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="70sp"/>
+    <EditText
+        android:id="@+id/txt_mk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:hint="Nhập vào mật khẩu"
+        android:textColorHint="#474747"
+        android:paddingLeft="15sp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sdt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20sp"/>
+        <Button
+            android:id="@+id/btn_dn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_btn"
+            app:backgroundTint="@null"
+            android:text="Đăng nhập"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mk"
+            android:layout_marginTop="40sp"
+            />
+   <TextView
+       android:id="@+id/txt_dk"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Bạn chưa có tài khoản? Đăng ký"
+       android:textSize="16sp"
+       android:textColor="#000000"
+       android:textStyle="bold"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/btn_dn"
+       android:layout_marginTop="20sp"/>
+
+        
+        
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>
